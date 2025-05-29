@@ -1,22 +1,3 @@
-# Firewall Breach
-
-Test your password strength against the firewall's security protocols.
-
-## Features
-
-- **Secure Password Validation**
-  - Minimum 8 characters length
-  - At least one uppercase letter
-  - At least one lowercase letter
-  - At least one number
-  - At least one cyber-symbol (., *, #, @, $, %, &)
-  - No invalid characters
-
-- **Real-time Validation Feedback**
-  - Instant validation as you type
-  - Clear error messages for each validation rule
-  - Visual success indication upon breach
-
 ## Installation
 
 ```bash
