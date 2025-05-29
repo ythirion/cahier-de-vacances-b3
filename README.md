@@ -1,0 +1,24 @@
+- [Semaine 1 : algorithmique de base](01.Algo.md)
+- [Semaine 2 : fixer 1 bug](https://github.com/advent-of-craft/2024/blob/main/docs/day10/challenge.md)
+	- Découvrir et appliquer la règle du boy scout
+- [Semaine 3 : ajouter une nouvelle fonctionnalité](https://github.com/advent-of-craft/2024/blob/main/docs/day18/challenge.md)
+	- Découvrir BDD / Gherkin / Cucumber
+- [Semaine 4 : refactorer du code legacy](https://github.com/advent-of-craft/2023/blob/main/docs/exercise/day23/challenge.md)
+	- Découvrir comment travailler sereinement avec du code Legacy
+- [Semaine 5 : React app](x1.md)
+	- Créer 1 app avec Vite / React / Typescript
+- [Semaine 6 : Extract the Validator Core](x2.md)
+	- Créer 1 API
+	- Designer avec des tests à plusieurs niveaux (unit, integration, black-box avec Postman)
+	- Utiliser l'api depuis le front (fetch ou axios par exemple)
+- [Semaine 7 : The Rule Matrix](x3.md)
+	- Rendre les règles de validation dynamiques
+	- Logger les appels (db ou fichier de log)
+	- Utiliser une base de données
+- [Semaine 8 : Deploy the Grid](x4.md)
+	- Mettre en place pipeline d'intégration continue
+	- Déployer le système (front + back sur provider gratuit)
+- [Semaine 9 : Discover unknown code](https://github.com/ythirion/jurassic-code)
+	- Prendre en main une base de code inconnue
+	- Identifier des smells
+	- Se créer une check-list / découvrir des outils permettant d'analyser rapidement du code
