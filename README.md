@@ -22,3 +22,10 @@
 	- Prendre en main une base de code inconnue
 	- Identifier des smells
 	- Se créer une check-list / découvrir des outils permettant d'analyser rapidement du code
+
+### Pour la correxion :
+- Mettre en place différents niveaux de tests
+	- Unit
+	- Integration Narrow + Broad (use SqLite avec TestContainers)
+- Déployer sur netlify / ovh ou autre
+- Ne pas mettre de DockerFile pour le moment -> objectif du cours de 3 jours (containerizer leur système avec docker-compose)
