@@ -1,4 +1,4 @@
-package marine;
+package neural;
 
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;

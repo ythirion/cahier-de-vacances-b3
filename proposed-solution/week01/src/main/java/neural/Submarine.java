@@ -1,4 +1,4 @@
-package marine;
+package neural;
 
 import java.util.List;
 
@@ -11,18 +11,18 @@ public record Submarine(Position position) {
         return new Submarine(new Position(horizontal, depth));
     }
 
-    public Submarine move(List<Instruction> instructions) {
-        return instructions
+    public Submarine move(List<Command> commands) {
+        return commands
                 .stream()
                 .reduce(this, Submarine::move, (s1, s2) -> s1);
     }
 
-    private Submarine move(Instruction instruction) {
+    private Submarine move(Command command) {
         return new Submarine(
-                switch (instruction.text()) {
-                    case DOWN -> down(instruction.x());
-                    case UP -> up(instruction.x());
-                    default -> forward(instruction.x());
+                switch (command.text()) {
+                    case DOWN -> down(command.x());
+                    case UP -> up(command.x());
+                    default -> forward(command.x());
                 }
         );
     }
@@ -39,7 +39,7 @@ public record Submarine(Position position) {
         return new Position(position.horizontal() + x, position.depth());
     }
 
-    public int result() {
+    public int accessCoordinate() {
         return position().depth() * position().horizontal();
     }
 }
