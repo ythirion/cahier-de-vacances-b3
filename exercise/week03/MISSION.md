@@ -57,7 +57,7 @@ Feature: Rock Paper Scissors Game
 ## The New Protocol: *Rock, Paper, Scissors, Lizard, Spock*
 
 The Agents now follow this expanded model:
-![Rock Paper Scissors Lizard Spock](img/rock-paper-scissors-lizard-spock.webp)
+![Rock Paper Scissors Lizard Spock](../../img/rock-paper-scissors-lizard-spock.webp)
 
 You need to **extend the behavior**, update the feature file, and ensure the simulation still produces consistent and testable results.
 
