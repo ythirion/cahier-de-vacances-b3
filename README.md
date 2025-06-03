@@ -29,3 +29,9 @@
 	- Integration Narrow + Broad (use SqLite avec TestContainers)
 - Déployer sur netlify / ovh ou autre
 - Ne pas mettre de DockerFile pour le moment -> objectif du cours de 3 jours (containerizer leur système avec docker-compose)
+
+
+### Pré-requis
+- .NET 9
+- java21
+- typescript

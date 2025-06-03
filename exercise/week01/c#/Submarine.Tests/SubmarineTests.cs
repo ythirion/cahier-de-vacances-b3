@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace Submarine.Tests
+namespace Neural.Tests
 {
     public class SubmarineTests
     {

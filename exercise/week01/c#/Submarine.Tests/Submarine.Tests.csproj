@@ -8,6 +8,8 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
         <LangVersion>latestmajor</LangVersion>
+        <AssemblyName>Neural.Tests</AssemblyName>
+        <RootNamespace>Neural.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latestmajor</LangVersion>
+    <AssemblyName>Neural</AssemblyName>
+    <RootNamespace>Neural</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
