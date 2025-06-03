@@ -4,7 +4,7 @@ using static System.IO.File;
 
 namespace Shift.Tests
 {
-    public class DeliveryShould
+    public class VerticalShiftShould
     {
         [Theory]
         [InlineData("1", 0)]
