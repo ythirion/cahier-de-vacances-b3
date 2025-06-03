@@ -1,0 +1,24 @@
+{
+  "name": "coda/games",
+  "description": "Extend the Simulation",
+  "require": {
+    "php": ">=8.1",
+    "pestphp/pest": "^v2.36",
+    "symfony/process": "v7.2.0",
+    "behat/behat": "v3.14.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Game\\": "src/Game",
+      "Tests\\": "features"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/behat"
+  }
+}
