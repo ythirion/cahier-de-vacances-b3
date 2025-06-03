@@ -1,3 +1,6 @@
+- [Week 1 – Dive into the Matrix](01.Algo.md)
+
+
 - [Semaine 1 : algorithmique de base](01.Algo.md)
 - [Semaine 2 : fixer 1 bug](https://github.com/advent-of-craft/2024/blob/main/docs/day10/challenge.md)
 	- Découvrir et appliquer la règle du boy scout
