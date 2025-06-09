@@ -3,21 +3,21 @@ package construct;
 public class BackdoorPassBehaviour implements Behaviour {
     @Override
     public void update(Artefact artefact) {
-        if (artefact.integrity < 50) {
-            artefact.integrity++;
+        if (artefact.isBelowMaxIntegrity()) {
+            artefact.increaseIntegrity();
 
-            if (artefact.timeToLive < 11 && artefact.integrity < 50) {
-                artefact.integrity++;
+            if (artefact.isBelowTimeBoostThreshold() && artefact.isBelowMaxIntegrity()) {
+                artefact.increaseIntegrity();
             }
 
-            if (artefact.timeToLive < 6 && artefact.integrity < 50) {
-                artefact.integrity++;
+            if (artefact.iBelowTimeCriticalThreshold() && artefact.isBelowMaxIntegrity()) {
+                artefact.increaseIntegrity();
             }
         }
 
-        artefact.timeToLive--;
+        artefact.decreaseTimeToLive();
 
-        if (artefact.timeToLive < 0) {
+        if (artefact.noTimeToLive()) {
             artefact.integrity = 0;
         }
     }
