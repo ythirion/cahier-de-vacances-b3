@@ -72,11 +72,10 @@ You need to **extend the behavior**, update the feature file, and ensure the sim
 
 > In the Matrix, every rule exists until it is rewritten.
 
+## Resources
+[Cucumber Documentation](https://cucumber.io/docs/guides/overview/)
+
 ## ☕ Reflect
-
-
-
-
 
 1. **Readability & Expressiveness**
 	*Does your code clearly express the game rules introduced in the feature file? How did you structure the logic or data to make it easy to understand who wins and why?* 
