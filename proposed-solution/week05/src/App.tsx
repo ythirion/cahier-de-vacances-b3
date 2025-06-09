@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactElement } from 'react';
 import PasswordInput from './components/PasswordInput';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/matrix-theme.css';
@@ -6,7 +6,7 @@ import './styles/matrix-theme.css';
 function App() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showAlarm, setShowAlarm] = useState(false);
-  const [matrixChars, setMatrixChars] = useState<JSX.Element[]>([]);
+  const [matrixChars, setMatrixChars] = useState<ReactElement[]>([]);
 
   useEffect(() => {
     // More straightforward approach for Matrix code
