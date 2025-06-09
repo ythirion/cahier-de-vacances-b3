@@ -5,6 +5,8 @@ In an attempt to bypass human unpredictability, the simulation began training Ag
 
 The original logic was basic: *Rock, Paper, Scissors*. A contained loop. Easy to predict. Easy to control.
 
+![Week 3 - Extend the Simulation](img/week03.webp)
+
 But something changed.
 
 The Agents started experimenting—adding new gestures, creating **forks in the decision tree**. They introduced **Lizard** and **Spock**, breaking the balance and extending the ruleset beyond the original intent.
@@ -57,7 +59,7 @@ Feature: Rock Paper Scissors Game
 ## The New Protocol: *Rock, Paper, Scissors, Lizard, Spock*
 
 The Agents now follow this expanded model:
-![Rock Paper Scissors Lizard Spock](../../img/rock-paper-scissors-lizard-spock.webp)
+![Rock Paper Scissors Lizard Spock](img/rock-paper-scissors-lizard-spock.webp)
 
 You need to **extend the behavior**, update the feature file, and ensure the simulation still produces consistent and testable results.
 

@@ -6,6 +6,8 @@ Your mission is to simulate a **Matrix breach** by crafting a password validatio
 You’ll develop this simulation using **React**, **Vite**, and **TypeScript**.
 **This is a safe zone. But the real thing won’t forgive mistakes.**
 
+![Week 5 - Breach the Matrix](img/week05.webp)
+
 ## The Matrix Firewall Protocol
 
 To outsmart Agent Smith’s logic trap, your breach password must **perfectly match Zion’s forged signature pattern**:

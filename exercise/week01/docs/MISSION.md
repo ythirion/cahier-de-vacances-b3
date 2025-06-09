@@ -14,6 +14,8 @@ You start with:
 
 Your goal is to interpret these commands, track your position, and locate the **Access Coordinate** that will let you breach the next simulation layer.
 
+![Week 1 - Dive into the Matrix](img/week01.webp)
+
 ## Commands in the Construct
 
 The control interface accepts three commands:

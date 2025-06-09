@@ -6,6 +6,8 @@ Zion’s simulation layer is fracturing. The **Construct Inventory**, a core eng
 
 The code has been patched too many times, too fast. Behaviors are hard-coded, duplicated, unreadable. Any change risks destabilizing the construct.
 
+![Week 4 - Rebuilding the Simulation Core](img/week04.webp)
+
 But now, a new need emerges.
 
 An advanced field device—**the Stealth Cloak v2.0**—has been smuggled into the Matrix. It helps agents hide from surveillance algorithms but slowly loses integrity over time. If you don’t integrate its behavior into the simulation, it will be rejected and neutralized.
@@ -144,7 +146,7 @@ Then outputs must match the original version byte-for-byte
 - [3 steps to add tests on existing code](https://understandlegacycode.com/blog/3-steps-to-add-tests-on-existing-code-when-you-have-short-deadlines/)
 - [Approval Tests](https://approvaltests.com/)
 
-![Approval Testing Cheat Sheet](../../img/approval-testing-cheatsheet.png)
+![Approval Testing Cheat Sheet](img/approval-testing-cheatsheet.webp)
 
 ## ☕ Reflect
 

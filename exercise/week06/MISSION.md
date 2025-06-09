@@ -12,6 +12,8 @@ From now on, **only the backend knows what makes a valid breach key.**
 The frontend merely transmits. Silently. Invisibly.
 You must **sever the signal**.
 
+![Week 6 - Server the Signal](img/week06.webp)
+
 ## 🧑‍💻 Your Mission
 
 ### 1. Build Zion’s Validation Core as a Backend API
@@ -111,11 +113,6 @@ You can implement your API in any backend language. Some paths:
 - [ ] Reflect on what this shift means for real-world cybersecurity
 
 ## ☕ Reflect
-Absolutely — here are **5 Matrix-themed reflection questions** specifically crafted for **Week 6 – *Sever the Signal***, focusing on the backend shift, security, design choices, and the developer experience of migrating logic out of the UI.
-
----
-
-## ☕ Post-Mission Reflection – *Beyond the Frontline*
 You’ve moved the breach logic beyond the visible layer, out of reach from the Agents who watch the Grid. Now reflect on what this shift taught you — not just about architecture, but about how and where logic should live:
 
 1. **Logic Migration**

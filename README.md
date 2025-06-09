@@ -20,6 +20,8 @@ You choose your tools. You write the code. You rewrite the rules.
 You didn’t ask for this.
 But the system chose you.
 
+![Cahier de vacances 2025-26](img/cahier-vacances.webp)
+
 The Matrix is breaking down—glitch by glitch, subsystem by subsystem.
 From the navigation core to the behavioral engines, fragments of unstable logic are surfacing.
 They were buried. Forgotten. Rewritten a hundred times over.
@@ -104,7 +106,7 @@ You can write them in a `reflect.md` file or a comment thread — your call.
 7. Come back next week for more 🔁
 
 ## Missions
-- [Week 1 – Dive into the Matrix](exercise/week01/MISSION.md)
-- [Week 2 - The Vertical Shift Anomaly](exercise/week02/MISSION.md)
-- [Week 3 – Extend the Simulation](exercise/week03/MISSION.md)
-- [Week 4 – Rebuilding the Simulation Core](exercise/week04/MISSION.md)
+- [Week 1 – Dive into the Matrix](exercise/week01/docs/MISSION.md)
+- [Week 2 - The Vertical Shift Anomaly](exercise/week02/docs/MISSION.md)
+- [Week 3 – Extend the Simulation](exercise/week03/docs/MISSION.md)
+- [Week 4 – Rebuilding the Simulation Core](exercise/week04/docs/MISSION.md)

@@ -14,6 +14,8 @@ A test began failing. Not randomly—but consistently. Like it *wants* to fail.
 
 Worse: traces of an obsolete subroutine labeled **🧝** have reappeared in the code. That symbol hasn’t been seen since the earliest builds of the simulation—back when the Matrix experimented with "seasonal behavior injectors."
 
+![Week 2 - The Vertical Shift Anomaly](img/week02.webp)
+
 Why is it here now?
 
 The elevator’s logic is no longer deterministic. Some signals trigger irrational shifts. Others inject unexplained values. You suspect that part of the system has become **self-modifying**. It adapts based on what's inside the input. It thinks. Or pretends to.
