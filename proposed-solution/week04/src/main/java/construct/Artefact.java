@@ -5,14 +5,18 @@ public class Artefact {
     private static final int TIME_BOOST_THRESHOLD = 11;
     private static final int TIME_CRITICAL_THRESHOLD = 6;
 
-    public String name;
-    public int integrity;
-    public int timeToLive;
+    private final String name;
+    private int integrity;
+    private int timeToLive;
 
     public Artefact(String name, int integrity, int timeToLive) {
         this.name = name;
         this.integrity = integrity;
         this.timeToLive = timeToLive;
+    }
+
+    void decreaseIntegrity() {
+        integrity--;
     }
 
     void increaseIntegrity() {
@@ -43,6 +47,24 @@ public class Artefact {
 
     boolean noTimeToLive() {
         return timeToLive < 0;
+    }
+
+    boolean hasIntegrity() {
+        return integrity > 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    // Only there for testing purposes 🫠
+    // Should be removed to preserve encapsulation
+    public int getIntegrity() {
+        return integrity;
+    }
+
+    public int getTimeToLive() {
+        return timeToLive;
     }
 
     @Override

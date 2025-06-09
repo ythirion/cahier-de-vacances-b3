@@ -22,7 +22,7 @@ public class ConstructInventory {
     }
 
     private void update(Artefact artefact) {
-        behaviours.getOrDefault(artefact.name, new DefaultBehaviour())
+        behaviours.getOrDefault(artefact.getName(), new DefaultBehaviour())
                 .update(artefact);
     }
 }

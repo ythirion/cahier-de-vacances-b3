@@ -17,8 +17,8 @@ public class InventoryTest {
         constructInventory.updateSimulation();
 
         // Assert
-        assertThat(artefact.timeToLive).isEqualTo(-1);
-        assertThat(artefact.integrity).isEqualTo(0);
+        assertThat(artefact.getTimeToLive()).isEqualTo(-1);
+        assertThat(artefact.getIntegrity()).isEqualTo(0);
     }
 
     @Test
