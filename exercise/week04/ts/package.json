@@ -1,6 +1,6 @@
 {
-  "name": "elevator.system",
-  "description": "The Vertical Shift Anomaly",
+  "name": "simulation.construct",
+  "description": "Rebuilding the Simulation Core",
   "version": "1.0.0",
   "dependencies": {
     "typescript": "^5.8.3"
