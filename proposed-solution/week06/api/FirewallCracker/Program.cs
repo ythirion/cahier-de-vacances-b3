@@ -1,3 +1,5 @@
+using FirewallCracker.Commands;
+using FirewallCracker.Core;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,17 +10,14 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapScalarApiReference(opt =>
-    {
-        opt.WithTitle("Matrix - Firewall Cracker");
-    });
+    app.MapScalarApiReference(opt => { opt.WithTitle("Matrix - Firewall Cracker"); });
 }
 
 app.UseHttpsRedirection();
 
-app.MapPost("/api/password-check", () => "OK coco")
+app.MapPost("/api/password-check", (CheckPassword command) => PasswordChecker.Check(command.Password))
     .WithDisplayName("Password check");
 
-app.RunAsync();
+app.Run();
 
 public partial class Program;

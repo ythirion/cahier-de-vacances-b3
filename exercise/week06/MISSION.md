@@ -95,7 +95,7 @@ The API responds:
     "hasCyberSymbol": true,
     "hasOnlyAllowedCharacters": true
   },
-  "message": "Password too short"
+  "message": "Password must be at least 8 characters long"
 }
 ```
 
