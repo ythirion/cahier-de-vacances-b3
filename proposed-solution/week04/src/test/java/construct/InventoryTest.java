@@ -42,8 +42,8 @@ public class InventoryTest {
                         "Backdoor Pass to TAFKAL80ETC Protocol",
                         "Sulfuras Core Fragment"
                 },
-                new Integer[]{-1, 0, 11},
-                new Integer[]{0, 1, 49, 50}
+                new Integer[]{-1, 0, 10, 11, 51},
+                new Integer[]{-1, 0, 1, 5, 49, 50}
         );
     }
 
