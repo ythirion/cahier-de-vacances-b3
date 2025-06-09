@@ -4,22 +4,22 @@ import org.approvaltests.Approvals;
 import org.approvaltests.combinations.CombinationApprovals;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static construct.ConstructInventory.*;
 
 public class InventoryTest {
-    @Test
-    void classicUnitTest() {
-        // Arrange
-        var artefact = new Artefact("Mirror Shard", 0, 0);
-        var constructInventory = new ConstructInventory(new Artefact[]{artefact});
-
-        // Act
-        constructInventory.updateSimulation();
-
-        // Assert
-        assertThat(artefact.getTimeToLive()).isEqualTo(-1);
-        assertThat(artefact.getIntegrity()).isEqualTo(0);
-    }
+//    @Test
+//    void classicUnitTest() {
+//        // Arrange
+//        var artefact = new Artefact("Mirror Shard", 0, 0);
+//        var constructInventory = new ConstructInventory(new Artefact[]{artefact});
+//
+//        // Act
+//        constructInventory.updateSimulation();
+//
+//        // Assert
+//        assertThat(artefact.getTimeToLive()).isEqualTo(-1);
+//        assertThat(artefact.getIntegrity()).isEqualTo(0);
+//    }
 
     @Test
     void singleApprovalTestForExample() {
@@ -38,9 +38,9 @@ public class InventoryTest {
                 this::updateSimulation,
                 new String[]{
                         "Mirror Shard",
-                        "Aged Signal",
-                        "Backdoor Pass to TAFKAL80ETC Protocol",
-                        "Sulfuras Core Fragment"
+                        AGED_SIGNAL,
+                        BACKDOOR_PASS,
+                        SULFURAS_CORE_FRAGMENT
                 },
                 new Integer[]{-1, 0, 10, 11, 51},
                 new Integer[]{-1, 0, 1, 5, 49, 50}
