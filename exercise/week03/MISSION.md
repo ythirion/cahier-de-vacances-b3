@@ -73,7 +73,8 @@ You need to **extend the behavior**, update the feature file, and ensure the sim
 > In the Matrix, every rule exists until it is rewritten.
 
 ## Resources
-[Cucumber Documentation](https://cucumber.io/docs/guides/overview/)
+- [What is BDD?](https://www.browserstack.com/guide/what-is-bdd)
+- [Cucumber Documentation](https://cucumber.io/docs/guides/overview/)
 
 ## ☕ Reflect
 

@@ -139,6 +139,8 @@ Then outputs must match the original version byte-for-byte
 1. Refactor the `updateQuality()` method to make it readable and open for extension
 2. Implement the logic for **Stealth Cloak v2.0** cleanly, without breaking existing functionality
 
+> [for each desired change, make the change easy (warning: this may be hard), then make the easy change - Kent Beck](https://x.com/KentBeck/status/250733358307500032?lang=fr)
+
 ## Resources
 - [The key points of Refactoring](https://understandlegacycode.com/blog/key-points-of-refactoring/)
 - [3 steps to add tests on existing code](https://understandlegacycode.com/blog/3-steps-to-add-tests-on-existing-code-when-you-have-short-deadlines/)

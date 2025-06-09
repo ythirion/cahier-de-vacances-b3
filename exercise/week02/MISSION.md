@@ -75,6 +75,10 @@ Make it count.
 > *“There’s no floor, Neo. There’s only state.”*
 > – Teo, Operator of Node-Δ12
 
+## Resources
+- [Boy scout rule](https://deviq.com/principles/boy-scout-rule)
+- [Refactoring Catalog](https://refactoring.guru/refactoring/catalog)
+
 ## ☕ Reflect
 Take a moment to reflect on your intervention inside the construct. Consider these questions:
 
