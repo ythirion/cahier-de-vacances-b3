@@ -1,64 +1,28 @@
 package construct;
 
-class ConstructInventory {
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ConstructInventory {
     Artefact[] artefacts;
+    private final Map<String, Behaviour> behaviours = new HashMap<>();
 
     public ConstructInventory(Artefact[] artefacts) {
         this.artefacts = artefacts;
+
+        behaviours.put("Aged Signal", new AgedSignalBehaviour());
+        behaviours.put("Backdoor Pass to TAFKAL80ETC Protocol", new BackdoorPassBehaviour());
+        behaviours.put("Sulfuras Core Fragment", new SulfurasBehaviour());
     }
 
     public void updateSimulation() {
-        for (int i = 0; i < artefacts.length; i++) {
-            Artefact artefact = artefacts[i];
+        Arrays.stream(artefacts)
+                .forEach(this::update);
+    }
 
-            if (!artefact.name.equals("Aged Signal")
-                    && !artefact.name.equals("Backdoor Pass to TAFKAL80ETC Protocol")) {
-                if (artefact.integrity > 0) {
-                    if (!artefact.name.equals("Sulfuras Core Fragment")) {
-                        artefact.integrity = artefact.integrity - 1;
-                    }
-                }
-            } else {
-                if (artefact.integrity < 50) {
-                    artefact.integrity = artefact.integrity + 1;
-
-                    if (artefact.name.equals("Backdoor Pass to TAFKAL80ETC Protocol")) {
-                        if (artefact.timeToLive < 11) {
-                            if (artefact.integrity < 50) {
-                                artefact.integrity = artefact.integrity + 1;
-                            }
-                        }
-
-                        if (artefact.timeToLive < 6) {
-                            if (artefact.integrity < 50) {
-                                artefact.integrity = artefact.integrity + 1;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (!artefact.name.equals("Sulfuras Core Fragment")) {
-                artefact.timeToLive = artefact.timeToLive - 1;
-            }
-
-            if (artefact.timeToLive < 0) {
-                if (!artefact.name.equals("Aged Signal")) {
-                    if (!artefact.name.equals("Backdoor Pass to TAFKAL80ETC Protocol")) {
-                        if (artefact.integrity > 0) {
-                            if (!artefact.name.equals("Sulfuras Core Fragment")) {
-                                artefact.integrity = artefact.integrity - 1;
-                            }
-                        }
-                    } else {
-                        artefact.integrity = artefact.integrity - artefact.integrity;
-                    }
-                } else {
-                    if (artefact.integrity < 50) {
-                        artefact.integrity = artefact.integrity + 1;
-                    }
-                }
-            }
-        }
+    private void update(Artefact artefact) {
+        behaviours.getOrDefault(artefact.name, new DefaultBehaviour())
+                .update(artefact);
     }
 }
