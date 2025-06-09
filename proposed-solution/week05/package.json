@@ -1,5 +1,6 @@
 {
   "name": "firewall-cracker",
+  "description": "Breach the Matrix",
   "private": true,
   "version": "1.0.0",
   "type": "module",
