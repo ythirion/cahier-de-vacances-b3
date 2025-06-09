@@ -16,17 +16,17 @@ export const validatePassword = async (password: string): Promise<PasswordValida
       },
       body: JSON.stringify({ password } as CheckPasswordRequest)
     });
-    
+
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    
+
     return await response.json() as PasswordValidationResult;
   } catch (error) {
     console.error('Error validating password:', error);
     return {
       isValid: false,
-      errors: ['Unable to connect to validation service. Please try again later.']
+      errors: ['Unable to connect.']
     };
   }
 };

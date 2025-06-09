@@ -1,5 +1,5 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { validatePassword } from '../services/passwordValidator';
+import { validatePassword } from '../services/passwordValidator.ts';
 import * as React from "react";
 
 interface PasswordInputProps {
