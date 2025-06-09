@@ -40,10 +40,11 @@ public class InventoryTest {
                         "Mirror Shard",
                         AGED_SIGNAL,
                         BACKDOOR_PASS,
-                        SULFURAS_CORE_FRAGMENT
+                        SULFURAS_CORE_FRAGMENT,
+                        STEALTH_CLOAK_V_2_0
                 },
-                new Integer[]{-1, 0, 10, 11, 51},
-                new Integer[]{-1, 0, 1, 5, 49, 50}
+                new Integer[]{-1, 0, 1, 10, 11, 51},
+                new Integer[]{-1, 0, 1, 4, 5, 49, 50}
         );
     }
 
