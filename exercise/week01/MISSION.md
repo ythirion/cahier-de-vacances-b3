@@ -52,7 +52,7 @@ Resulting position:
 📌 The **Access Coordinate** to break through to the next layer is:
 `horizontal × depth = 150`
 
-## 🧑‍💻 Your Challenge
+## 🧑‍💻 Your Mission
 Your job is to load the real instruction file (`submarine.txt`), parse its commands, and compute the final Access Coordinate. That value is your key. Without it, you’re trapped in this layer of the Matrix… forever.
 
 > What’s the result of `horizontal × depth` after processing the full command list?

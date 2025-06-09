@@ -54,7 +54,7 @@ public static class Vertical
 }
 ```
 
-## 🧑‍💻 Your Challenge
+## 🧑‍💻 Your Mission
 Dive into the code. First, **observe the behavior** of the elevator logic with different input streams. 
 
 Try multiple cases. See how it reacts when the 🧝 symbol appears... and when it doesn’t.

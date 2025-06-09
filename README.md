@@ -107,3 +107,4 @@ You can write them in a `reflect.md` file or a comment thread — your call.
 - [Week 1 – Dive into the Matrix](exercise/week01/MISSION.md)
 - [Week 2 - The Vertical Shift Anomaly](exercise/week02/MISSION.md)
 - [Week 3 – Extend the Simulation](exercise/week03/MISSION.md)
+- [Week 4 – Rebuilding the Simulation Core](exercise/week04/MISSION.md)

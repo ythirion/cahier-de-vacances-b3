@@ -1,7 +1,5 @@
 # Week 4 – *Rebuilding the Simulation Core*
 
----
-
 ## The Artefacts Are Waking Up
 
 Zion’s simulation layer is fracturing. The **Construct Inventory**, a core engine responsible for modelling the behavior of in-world artefacts, is dangerously entangled.
@@ -15,6 +13,71 @@ An advanced field device—**the Stealth Cloak v2.0**—has been smuggled into t
 Before you can expand the simulation, you must **refactor the system** to be safer, clearer, and open to extension.
 
 > **You are Neo. The system won’t make this easy. But Zion is watching.**
+
+```java
+class ConstructInventory {
+    Artefact[] artefacts;
+
+    public ConstructInventory(Artefact[] artefacts) {
+        this.artefacts = artefacts;
+    }
+
+    public void updateSimulation() {
+        for (int i = 0; i < artefacts.length; i++) {
+            Artefact artefact = artefacts[i];
+
+            if (!artefact.name.equals("Aged Signal")
+                    && !artefact.name.equals("Backdoor Pass to TAFKAL80ETC Protocol")) {
+                if (artefact.integrity > 0) {
+                    if (!artefact.name.equals("Sulfuras Core Fragment")) {
+                        artefact.integrity = artefact.integrity - 1;
+                    }
+                }
+            } else {
+                if (artefact.integrity < 50) {
+                    artefact.integrity = artefact.integrity + 1;
+
+                    if (artefact.name.equals("Backdoor Pass to TAFKAL80ETC Protocol")) {
+                        if (artefact.timeToLive < 11) {
+                            if (artefact.integrity < 50) {
+                                artefact.integrity = artefact.integrity + 1;
+                            }
+                        }
+
+                        if (artefact.timeToLive < 6) {
+                            if (artefact.integrity < 50) {
+                                artefact.integrity = artefact.integrity + 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!artefact.name.equals("Sulfuras Core Fragment")) {
+                artefact.timeToLive = artefact.timeToLive - 1;
+            }
+
+            if (artefact.timeToLive < 0) {
+                if (!artefact.name.equals("Aged Signal")) {
+                    if (!artefact.name.equals("Backdoor Pass to TAFKAL80ETC Protocol")) {
+                        if (artefact.integrity > 0) {
+                            if (!artefact.name.equals("Sulfuras Core Fragment")) {
+                                artefact.integrity = artefact.integrity - 1;
+                            }
+                        }
+                    } else {
+                        artefact.integrity = artefact.integrity - artefact.integrity;
+                    }
+                } else {
+                    if (artefact.integrity < 50) {
+                        artefact.integrity = artefact.integrity + 1;
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
 ## 🧾 User Story – *Add Support for Stealth Cloak v2.0*
 
@@ -31,8 +94,6 @@ to model the behavior of the new artefact type "Stealth Cloak v2.0"
 ### **So that**
 
 its integrity can degrade correctly within the Construct Inventory without risking existing artefact logic.
-
----
 
 ## ✅ Acceptance Criteria
 ### 1. Slow decay
@@ -78,7 +139,14 @@ Then outputs must match the original version byte-for-byte
 1. Refactor the `updateQuality()` method to make it readable and open for extension
 2. Implement the logic for **Stealth Cloak v2.0** cleanly, without breaking existing functionality
 
-## ☕ Reflection Questions
+## Resources
+- [The key points of Refactoring](https://understandlegacycode.com/blog/key-points-of-refactoring/)
+- [3 steps to add tests on existing code](https://understandlegacycode.com/blog/3-steps-to-add-tests-on-existing-code-when-you-have-short-deadlines/)
+- [Approval Tests](https://approvaltests.com/)
+
+![Approval Testing Cheat Sheet](../../img/approval-testing-cheatsheet.png)
+
+## ☕ Reflect
 
 1. What did you change in the structure to make behavior extensible?
 2. How did you test for regressions in the existing code?

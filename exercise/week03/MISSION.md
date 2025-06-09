@@ -61,7 +61,7 @@ The Agents now follow this expanded model:
 
 You need to **extend the behavior**, update the feature file, and ensure the simulation still produces consistent and testable results.
 
-## 🧑‍💻 Your Challenge
+## 🧑‍💻 Your Mission
 
 **Add Lizard and Spock to the simulation engine using Behavior-Driven Development (BDD).**
 
