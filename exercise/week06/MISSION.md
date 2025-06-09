@@ -42,15 +42,7 @@ Develop a **REST API** to encapsulate the Matrix breach key logic — the same r
 ```json
 {
   "isValid": true,
-  "rules": {
-    "minLength": true,
-    "hasUppercase": true,
-    "hasLowercase": true,
-    "hasNumber": true,
-    "hasCyberSymbol": true,
-    "hasOnlyAllowedCharacters": true
-  },
-  "message": "Firewall Breached"
+  "errors": []
 }
 ```
 
@@ -87,15 +79,7 @@ The API responds:
 ```json
 {
   "isValid": false,
-  "rules": {
-    "minLength": false,
-    "hasUppercase": true,
-    "hasLowercase": true,
-    "hasNumber": true,
-    "hasCyberSymbol": true,
-    "hasOnlyAllowedCharacters": true
-  },
-  "message": "Password must be at least 8 characters long"
+  "messages": ["Password must be at least 8 characters long"]
 }
 ```
 
