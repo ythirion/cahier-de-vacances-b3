@@ -6,11 +6,11 @@ public class BackdoorPassBehaviour implements Behaviour {
         if (artefact.isBelowMaxIntegrity()) {
             artefact.increaseIntegrity();
 
-            if (artefact.isBelowTimeBoostThreshold() && artefact.isBelowMaxIntegrity()) {
+            if (artefact.isBelowTimeBoostThreshold()) {
                 artefact.increaseIntegrity();
             }
 
-            if (artefact.iBelowTimeCriticalThreshold() && artefact.isBelowMaxIntegrity()) {
+            if (artefact.iBelowTimeCriticalThreshold()) {
                 artefact.increaseIntegrity();
             }
         }
@@ -18,7 +18,7 @@ public class BackdoorPassBehaviour implements Behaviour {
         artefact.decreaseTimeToLive();
 
         if (artefact.noTimeToLive()) {
-            artefact.integrity = 0;
+            artefact.resetIntegrity();
         }
     }
 }

@@ -16,11 +16,17 @@ public class Artefact {
     }
 
     void increaseIntegrity() {
-        integrity++;
+        if (isBelowMaxIntegrity()) {
+            integrity++;
+        }
     }
 
     void decreaseTimeToLive() {
         timeToLive--;
+    }
+
+    void resetIntegrity() {
+        integrity = 0;
     }
 
     boolean iBelowTimeCriticalThreshold() {
