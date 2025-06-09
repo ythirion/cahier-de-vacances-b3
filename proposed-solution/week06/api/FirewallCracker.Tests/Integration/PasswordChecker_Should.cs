@@ -28,15 +28,7 @@ public class PasswordCheckerShould(WebApplicationFactory<Program> factory)
         Assert.Equal(
             new PasswordResult(
                 IsValid: false,
-                Rules: new Rules(
-                    MinLength: false,
-                    HasUpperCase: true,
-                    HasLowerCase: true,
-                    HasNumber: true,
-                    HasCyberSymbol: true,
-                    HasOnlyAllowedCharacters: true
-                ),
-                Message: "Password must be at least 8 characters long"
+                Messages: ["Password must be at least 8 characters long"]
             ),
             result);
     }
