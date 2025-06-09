@@ -9,6 +9,8 @@ npm install
 ```bash
 # Start the development server
 npm run dev
+// You can run both the frontend and backend servers simultaneously by running:
+sh runApp.sh
 ```
 
 Visit `http://localhost:5173` to view the application.
