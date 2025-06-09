@@ -1,5 +1,4 @@
-// @ts-ignore
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { validatePassword } from '../services/passwordValidator';
 import * as React from "react";
 
@@ -36,30 +35,30 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ onSuccess, onError }) => 
   };
 
   return (
-    <div className="tron-panel">
-      <h2 className="tron-title">Firewall Security System</h2>
+    <div className="matrix-panel">
+      <h2 className="matrix-title">Matrix Security Gateway</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          className="tron-input"
+          className="matrix-input"
           placeholder="Enter access password"
           value={password}
           onChange={handleInputChange}
           autoFocus
         />
-        <button type="submit" className="tron-button">
+        <button type="submit" className="matrix-button">
           Verify Access
         </button>
       </form>
 
       {showResults && (
-        <div className={isSuccess ? 'tron-success' : 'tron-error'}>
+        <div className={isSuccess ? 'matrix-success' : 'matrix-error'}>
           {isSuccess ? (
             <p>Access Granted. Firewall penetration successful.</p>
           ) : (
             <>
               <p>Access Denied. Security traces detected:</p>
-              <ul className="tron-error-list">
+              <ul className="matrix-error-list">
                 {errors.map((error, index) => (
                   <li key={index}>{error}</li>
                 ))}

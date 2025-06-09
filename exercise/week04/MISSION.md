@@ -133,9 +133,7 @@ When executed with the refactored code
 Then outputs must match the original version byte-for-byte
 ```
 
-## 🧑‍💻 Your Mission
-
-### Refactor first. Extend second.
+## 🧑‍💻 Your Mission - Refactor first. Extend second.
 1. Refactor the `updateQuality()` method to make it readable and open for extension
 2. Implement the logic for **Stealth Cloak v2.0** cleanly, without breaking existing functionality
 

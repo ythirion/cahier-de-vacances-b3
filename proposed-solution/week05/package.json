@@ -1,15 +1,14 @@
 {
   "name": "firewall-cracker",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest",
-    "docker:build": "docker build -t firewall-cracker:${npm_package_version} ."
+    "test": "jest"
   },
   "dependencies": {
     "bootstrap": "^5.3.6",
