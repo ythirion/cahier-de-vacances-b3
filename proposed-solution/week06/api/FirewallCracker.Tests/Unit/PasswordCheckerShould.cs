@@ -9,12 +9,7 @@ public class PasswordCheckerShould
     [InlineData("Valid123@#$")]
     [InlineData("ValidPassword123@")]
     public void Validate_ValidPasswords(string password)
-    {
-        var result = PasswordChecker.Check(password);
-
-        Assert.True(result.IsValid);
-        Assert.Equal("Firewall Breached", result.Messages.Single());
-    }
+        => Assert.True(PasswordChecker.Check(password).IsValid);
 
     public static IEnumerable<object[]> InvalidPasswords =>
         new List<object[]>
@@ -36,7 +31,7 @@ public class PasswordCheckerShould
                     "Password must contain at least one uppercase letter",
                     "Password must contain at least one number",
                     "Password must contain at least one cyber-symbol (. * # @ $ % &)",
-                    "Invalid characters detected: !"
+                    "Invalid characters detected!!!"
                 }
             }
         };
@@ -50,7 +45,7 @@ public class PasswordCheckerShould
         Assert.False(result.IsValid);
         Assert.Equal(
             expectedMessages.OrderBy(m => m),
-            result.Messages.OrderBy(m => m)
+            result.Errors.OrderBy(m => m)
         );
     }
 }

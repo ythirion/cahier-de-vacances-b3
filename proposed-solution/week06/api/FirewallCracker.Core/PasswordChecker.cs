@@ -7,37 +7,50 @@ public static class PasswordChecker
 
     public static PasswordResult Check(string password)
     {
+        var errors = new List<string>();
         var minLength = password.Length >= MinimumLength;
+
+        if (!minLength)
+        {
+            errors.Add("Password must be at least 8 characters long");
+        }
+
         var hasUpper = password.Any(char.IsUpper);
+        if (!hasUpper)
+        {
+            errors.Add("Password must contain at least one uppercase letter");
+        }
+
         var hasLower = password.Any(char.IsLower);
+        if (!hasLower)
+        {
+            errors.Add("Password must contain at least one lowercase letter");
+        }
+
         var hasNumber = password.Any(char.IsDigit);
+        if (!hasNumber)
+        {
+            errors.Add("Password must contain at least one number");
+        }
+
         var hasCyberSymbol = password.Any(SpecialCharacters.Contains);
+        if (!hasCyberSymbol)
+        {
+            errors.Add("Password must contain at least one cyber-symbol (. * # @ $ % &)");
+        }
+
         var hasOnlyAllowedCharacters = password.All(IsAValidCharacter);
 
-        var isValid = minLength &&
-                      hasUpper &&
-                      hasLower &&
-                      hasNumber &&
-                      hasCyberSymbol &&
-                      hasOnlyAllowedCharacters;
+        if (!hasOnlyAllowedCharacters)
+        {
+            errors.Add("Invalid characters detected!!!");
+        }
 
-        var message = isValid ? "Firewall Breached" : GetFailureMessage();
-        return new PasswordResult(isValid, [message]);
+        return new PasswordResult(errors.Count == 0, errors.ToArray());
     }
 
     private static bool IsAValidCharacter(char c) =>
         char.IsLetter(c)
         || char.IsDigit(c)
         || SpecialCharacters.Contains(c);
-
-    private static string GetFailureMessage()
-    {
-        /*if (!rules.HasOnlyAllowedCharacters) return "Invalid characters detected!!!";
-        if (!rules.MinLength) return "Password must be at least 8 characters long";
-        if (!rules.HasUpperCase) return "Password must contain at least one uppercase letter";
-        if (!rules.HasLowerCase) return "Password must contain at least one lowercase letter";
-        if (!rules.HasNumber) return "Password must contain at least one number";
-        if (!rules.HasCyberSymbol) return "Password must contain at least one cyber-symbol (. * # @ $ % &)";*/
-        return "Invalid password";
-    }
 }

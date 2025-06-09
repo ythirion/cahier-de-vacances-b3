@@ -25,10 +25,10 @@ public class PasswordCheckerShould(WebApplicationFactory<Program> factory)
         response.EnsureSuccessStatusCode();
         var result = (await response.Content.ReadFromJsonAsync<PasswordResult>())!;
 
-        Assert.Equal(
+        Assert.Equivalent(
             new PasswordResult(
                 IsValid: false,
-                Messages: ["Password must be at least 8 characters long"]
+                Errors: ["Password must be at least 8 characters long"]
             ),
             result);
     }

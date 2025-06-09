@@ -1,3 +1,3 @@
 namespace FirewallCracker.Core;
 
-public record PasswordResult(bool IsValid, string[] Messages);
+public record PasswordResult(bool IsValid, string[] Errors);
