@@ -63,6 +63,8 @@ built/*
 **/src/**/*.js.map
 **/tests/**/*.js
 **/tests/**/*.js.map
+playwright-report/
+test-results/
 
 ### Scala
 .bsp/
