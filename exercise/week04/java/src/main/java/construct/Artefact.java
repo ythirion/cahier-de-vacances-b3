@@ -13,6 +13,6 @@ public class Artefact {
 
     @Override
     public String toString() {
-        return this.name + ", " + this.integrity + ", " + this.timeToLive;
+        return this.name + ", 🥄 integrity:" + this.integrity + ", 💓timeToLive:" + this.timeToLive;
     }
 }

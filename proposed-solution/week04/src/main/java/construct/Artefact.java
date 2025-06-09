@@ -70,5 +70,4 @@ public class Artefact {
     public String toString() {
         return this.name + ", 🥄 integrity:" + this.integrity + ", 💓timeToLive:" + this.timeToLive;
     }
-
 }
