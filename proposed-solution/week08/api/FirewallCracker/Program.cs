@@ -55,11 +55,8 @@ app.UseCors()
     // Avoid to leak your implementation details to your callers
     .UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference(opt => { opt.WithTitle("Matrix - Firewall Cracker"); });
-}
+app.MapOpenApi();
+app.MapScalarApiReference(opt => { opt.WithTitle("Matrix - Firewall Cracker"); });
 
 app.MapPost("/api/password-check",
         async (ICheckPasswordUseCase useCase, CheckPassword request, IPasswordCheckLogger logger) =>

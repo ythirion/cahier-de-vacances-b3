@@ -61,7 +61,7 @@ Choose your node:
 | Platform | Stack Support | Notes                          |
 | -------- | ------------- | ------------------------------ |
 | Render   | Full          | Supports persistent SQLite     |
-| Railway  | Full          | GitHub + SQLite = 💥           |
+| Railway  | Full          | GitHub + SQLite =              |
 | Fly.io   | Full          | Edge-ready deployment          |
 | Heroku   | Node, Python  | Free tier works for quick test |
 
