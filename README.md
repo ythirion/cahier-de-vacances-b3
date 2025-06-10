@@ -112,3 +112,5 @@ You can write them in a `reflect.md` file or a comment thread — your call.
 - [Week 4 – Rebuilding the Simulation Core](exercise/week04/docs/MISSION.md)
 - [Week 5 – Breach the Matrix](exercise/week05/MISSION.md)
 - [Week 6 – Sever the Signal](exercise/week06/MISSION.md)
+- [Week 7 – Rewrite the Rule Matrix](exercise/week07/MISSION.md)
+- [Week 8 – Final Upload](exercise/week08/MISSION.md)
