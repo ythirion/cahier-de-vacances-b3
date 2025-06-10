@@ -11,9 +11,9 @@ public class Database(IConfiguration configuration)
 
     private bool _isInitialized;
 
-    private const string Path = "../FirewallCracker.Adapters/scripts";
-    private const string CreateSchemaScript = $"{Path}/CreateSchema.sql";
-    private const string SeedRulesScript = $"{Path}/SeedRules.sql";
+    private static readonly string ScriptsDirectory = Path.Combine(AppContext.BaseDirectory, "scripts");
+    private static readonly string CreateSchemaScript = Path.Combine(ScriptsDirectory, "CreateSchema.sql");
+    private static readonly string SeedRulesScript = Path.Combine(ScriptsDirectory, "SeedRules.sql");
 
     public async Task InitializeAsync()
     {
