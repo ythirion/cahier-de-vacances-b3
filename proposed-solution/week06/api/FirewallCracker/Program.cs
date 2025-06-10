@@ -1,3 +1,4 @@
+using FirewallCracker;
 using FirewallCracker.Core;
 using FirewallCracker.PasswordCheck;
 using Scalar.AspNetCore;
@@ -23,8 +24,11 @@ builder.Services
     .AddScoped<ICheckPasswordUseCase, CheckPasswordUseCase>();
 
 var app = builder.Build();
-app.UseCors();
-app.UseHttpsRedirection();
+
+app.UseCors()
+    .UseHttpsRedirection()
+    // Avoid to leak your implementation details to your callers
+    .UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
@@ -36,6 +40,6 @@ app.MapPost("/api/password-check",
         (ICheckPasswordUseCase useCase, CheckPassword request) => useCase.Handle(request.Password).ToResponse())
     .WithDisplayName("Check Password");
 
-app.Run();
+await app.RunAsync();
 
 public partial class Program;
