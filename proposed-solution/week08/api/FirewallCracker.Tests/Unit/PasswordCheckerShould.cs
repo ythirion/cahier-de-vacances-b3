@@ -2,6 +2,8 @@ using FirewallCracker.Core;
 
 namespace FirewallCracker.Tests.Unit;
 
+public record InvalidPassword(string password, List<string> expectedMessages);
+
 public class PasswordCheckerShould
 {
     private readonly PasswordChecker _checker = new(new PasswordRuleRepositoryFake());
@@ -13,40 +15,27 @@ public class PasswordCheckerShould
     public async Task Validate_ValidPasswords(string password)
         => Assert.True((await _checker.CheckAsync(password)).IsValid);
 
-    public static IEnumerable<object[]> InvalidPasswords =>
-        new List<object[]>
-        {
-            new object[]
-            {
-                "Val1@",
-                new List<string>
-                {
-                    "Password must be at least 8 characters long"
-                }
-            },
-            new object[]
-            {
-                "pass!",
-                new List<string>
-                {
-                    "Password must be at least 8 characters long",
-                    "Password must contain at least one uppercase letter",
-                    "Password must contain at least one number",
-                    "Password must contain at least one cyber-symbol (. * # @ $ % &)",
-                    "Invalid characters detected!!!"
-                }
-            }
-        };
+    public static TheoryData<InvalidPassword> InvalidPasswords =>
+    [
+        new("Val1@", ["Password must be at least 8 characters long"]),
+        new("pass!", [
+            "Password must be at least 8 characters long",
+            "Password must contain at least one uppercase letter",
+            "Password must contain at least one number",
+            "Password must contain at least one cyber-symbol (. * # @ $ % &)",
+            "Invalid characters detected!!!"
+        ])
+    ];
 
     [Theory]
     [MemberData(nameof(InvalidPasswords))]
-    public async Task Reject_InvalidPasswords(string password, List<string> expectedMessages)
+    public async Task Reject_InvalidPasswords(InvalidPassword invalidPassword)
     {
-        var result = await _checker.CheckAsync(password);
+        var result = await _checker.CheckAsync(invalidPassword.password);
 
         Assert.False(result.IsValid);
         Assert.Equal(
-            expectedMessages.OrderBy(m => m),
+            invalidPassword.expectedMessages.OrderBy(m => m),
             result.Errors.OrderBy(m => m)
         );
     }

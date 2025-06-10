@@ -1,8 +1,13 @@
-﻿namespace FirewallCracker.Core;
+﻿using System.Text.RegularExpressions;
+using static System.Text.RegularExpressions.Regex;
+
+namespace FirewallCracker.Core;
 
 public record Rule(string Regex, string Description)
 {
-    public bool Match(string password) => System.Text.RegularExpressions.Regex.Match(password, Regex).Success;
+    public bool Match(string password)
+        // Use TimeSpan.FromMilliseconds(100) to prevent DoS attacks with long-running regex matches
+        => IsMatch(password, Regex, RegexOptions.None, TimeSpan.FromMilliseconds(100));
 }
 
 public sealed class PasswordChecker(IPasswordRuleRepository passwordRuleRepository) : IPasswordChecker

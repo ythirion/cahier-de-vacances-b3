@@ -44,14 +44,6 @@ jobs:
           path: ./proposed-solution/week08/front-end/playwright-report
           retention-days: 30
           
-      - name: Upload Playwright test results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-test-results
-          path: ./proposed-solution/week08/front-end/test-results
-          retention-days: 30
-        
       - name: Build frontend
         run: npm run build
           

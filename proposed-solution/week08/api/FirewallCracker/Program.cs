@@ -78,4 +78,6 @@ await db.InitializeAsync();
 
 await app.RunAsync();
 
+#pragma warning disable S1118 // declared as partial for testing purposes
 public partial class Program;
+#pragma warning restore S1118
