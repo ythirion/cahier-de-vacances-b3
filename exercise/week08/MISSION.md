@@ -114,6 +114,7 @@ Here are **4 reflect questions** for **Week 8 – *Final Upload*** to help stude
 
 TODO :
 - Create a file for explanations regarding Azure with screenshots
-- Badges -> Sonar, Codescene
+- Badges -> Sonar, Codescene, Netlify, Azure
 - Steps to deploy
-   - Live urls : https://matrix-api-hnbfbcaxhab2cugt.westeurope-01.azurewebsites.net/scalar/
+   - api: https://matrix-api-hnbfbcaxhab2cugt.westeurope-01.azurewebsites.net/scalar/
+   - react: https://6848809c2845670b7fd9fb45--matrix-b3.netlify.app/

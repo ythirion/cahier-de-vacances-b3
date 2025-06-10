@@ -7,9 +7,11 @@ export interface CheckPasswordRequest {
   password: string;
 }
 
+const API_URL = `${import.meta.env.VITE_MATRIX_API_URL}/api/password-check`;
+
 export const validatePassword = async (password: string): Promise<PasswordValidationResult> => {
   try {
-    const response = await fetch('https://localhost:7128/api/password-check', {
+    const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
