@@ -13,9 +13,9 @@ public class PasswordCheckerShould(WebApplicationFactory<Program> factory)
     private readonly HttpClient _client = factory.CreateClient();
 
     [Fact]
-    public async Task Return_BadRequest_For_Null()
+    public async Task Return_Internal_Server_Error_For_Null()
         => (await CheckPasswordFor(NoCommand))
-            .FailedWithBadRequest();
+            .FailedWithInternalError();
 
     [Fact]
     public async Task Return_Ok_For_Failing_Password()

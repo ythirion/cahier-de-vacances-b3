@@ -1,4 +1,6 @@
-﻿namespace FirewallCracker.Core;
+﻿using System.Text.RegularExpressions;
+
+namespace FirewallCracker.Core;
 
 public interface IPasswordChecker
 {
@@ -12,9 +14,6 @@ public sealed class PasswordChecker : IPasswordChecker
 
 public static class PasswordPolicy
 {
-    private const int MinimumLength = 8;
-    private static readonly List<char> SpecialCharacters = ['.', '*', '#', '@', '$', '%', '&'];
-
     public static CheckPasswordResult Check(string password)
     {
         var errors = new List<string>();
@@ -30,55 +29,29 @@ public static class PasswordPolicy
     }
 
     private static void GreaterThanMinimumLength(string password, List<string> errors)
-    {
-        if (password.Length < MinimumLength)
-        {
-            errors.Add("Password must be at least 8 characters long");
-        }
-    }
+        => Match(password, ".{8,}", "Password must be at least 8 characters long", errors);
 
     private static void AtLeastOneUpperCase(string password, List<string> errors)
-    {
-        if (!password.Any(char.IsUpper))
-        {
-            errors.Add("Password must contain at least one uppercase letter");
-        }
-    }
+        => Match(password, ".*[A-Z].*", "Password must contain at least one uppercase letter", errors);
 
     private static void AtLeastOneLowerCase(string password, List<string> errors)
-    {
-        if (!password.Any(char.IsLower))
-        {
-            errors.Add("Password must contain at least one lowercase letter");
-        }
-    }
+        => Match(password, ".*[a-z].*", "Password must contain at least one lowercase letter", errors);
 
     private static void AtLeastOneNumber(string password, List<string> errors)
-    {
-        if (!password.Any(char.IsDigit))
-        {
-            errors.Add("Password must contain at least one number");
-        }
-    }
+        => Match(password, ".*[0-9].*", "Password must contain at least one number", errors);
 
     private static void AtLeastOneCyberSymbol(string password, List<string> errors)
-    {
-        if (!password.Any(SpecialCharacters.Contains))
-        {
-            errors.Add("Password must contain at least one cyber-symbol (. * # @ $ % &)");
-        }
-    }
+        => Match(password, ".*[.*#@$%&].*", "Password must contain at least one cyber-symbol (. * # @ $ % &)", errors);
 
     private static void HasOnlyValidCharacters(string password, List<string> errors)
+        => Match(password, "^[a-zA-Z0-9.*#@$%&]+$", "Invalid characters detected!!!",
+            errors);
+
+    private static void Match(string password, string regex, string reason, List<string> errors)
     {
-        if (!password.All(IsAValidCharacter))
+        if (!Regex.Match(password, regex).Success)
         {
-            errors.Add("Invalid characters detected!!!");
+            errors.Add(reason);
         }
     }
-
-    private static bool IsAValidCharacter(char c) =>
-        char.IsLetter(c)
-        || char.IsDigit(c)
-        || SpecialCharacters.Contains(c);
 }
