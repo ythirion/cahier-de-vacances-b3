@@ -58,17 +58,6 @@ Never store raw passwords. Even machines in `Zion` have standards.
 * Backend logic remains in `/api/password-check`
 * Frontend stays untouched
 
-## Bonus Missions
-
-🔍 `/api/rules`
-
-> Return the full list of rules and their active status
-
-📜 `/api/logs`
-
-> Return a list of attempts with timestamp and hash
-> (Optional: Filter by time range)
-
 ## 🧑‍💻 Your Mission
 
 1. **Create a rule-driven validator** using SQLite
