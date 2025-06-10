@@ -106,10 +106,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish backend
-        run: dotnet publish -c Release --property:PublishDir=./publish
+        run: dotnet publish -c Release --property:PublishDir=publish
         
       - name: Archive backend build
         uses: actions/upload-artifact@v4
         with:
           name: backend-build
-          path: ./proposed-solution/week08/api/publish
+          path: ./proposed-solution/week08/api/FirewallCracker/publish
