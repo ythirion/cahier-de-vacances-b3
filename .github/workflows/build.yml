@@ -54,19 +54,6 @@ jobs:
         
       - name: Build frontend
         run: npm run build
-        
-      - name: Upload coverage (optional)
-        uses: codecov/codecov-action@v3
-        with:
-          directory: ./coverage
-          flags: frontend
-          fail_ci_if_error: false
-          
-      - name: Archive frontend build
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-build
-          path: ./proposed-solution/week08/front-end/dist
           
   backend-build:
     name: Backend Build
@@ -85,19 +72,40 @@ jobs:
         with:
           dotnet-version: '9.0.x'
           
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'zulu'
+          
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~\.sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+          
+      - name: Install SonarCloud scanner
+        run: |
+          dotnet tool install --global dotnet-sonarscanner
+          
       - name: Restore dependencies
         run: dotnet restore
         
+      - name: Begin SonarCloud analysis
+        run: |
+          dotnet-sonarscanner begin /k:"ythirion_cahier-de-vacances-b3" /o:"ythirion" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml" /d:sonar.cs.vstest.reportsPaths="**/*.trx" /d:sonar.sources="./proposed-solution/week08/api" /d:sonar.cs.analyzer.projectOutPaths="./proposed-solution/week08/api/**/bin" /d:sonar.verbose=true
+      
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore --configuration Release
         
       - name: Test
-        run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
+        run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage;Format=opencover" --logger trx --results-directory ./TestResults/
         
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5.2.0
+      - name: End SonarCloud analysis
+        run: dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish backend
         run: dotnet publish -c Release -o ./publish
