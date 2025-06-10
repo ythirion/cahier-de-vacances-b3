@@ -1,4 +1,4 @@
-name: Build Matrix Artefacts
+name: Build React App
 
 on:
   push:

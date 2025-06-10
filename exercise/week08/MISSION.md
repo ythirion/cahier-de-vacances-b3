@@ -110,3 +110,10 @@ Here are **4 reflect questions** for **Week 8 – *Final Upload*** to help stude
 
 4. **In a real-world system, how would you monitor and validate that your deployed environments remain stable and functional over time?**
    * Go beyond “it worked once” — what about tomorrow?
+
+
+TODO :
+- Create a file for explanations regarding Azure with screenshots
+- Badges -> Sonar, Codescene
+- Steps to deploy
+   - Live urls : https://matrix-api-hnbfbcaxhab2cugt.westeurope-01.azurewebsites.net/scalar/
