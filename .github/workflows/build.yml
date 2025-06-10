@@ -1,4 +1,4 @@
-name: Build Matrix Arsenal
+name: Build Matrix Artefacts
 
 on:
   push:
@@ -37,7 +37,7 @@ jobs:
         run: npm run test:e2e
         
       - name: Upload Playwright report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
@@ -45,7 +45,7 @@ jobs:
           retention-days: 30
           
       - name: Upload Playwright test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-test-results
@@ -63,7 +63,7 @@ jobs:
           fail_ci_if_error: false
           
       - name: Archive frontend build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: frontend-build
           path: ./proposed-solution/week08/front-end/dist
@@ -106,7 +106,7 @@ jobs:
         run: dotnet publish -c Release -o ./publish
         
       - name: Archive backend build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: backend-build
           path: ./proposed-solution/week08/api/publish
