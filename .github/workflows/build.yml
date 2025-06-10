@@ -94,13 +94,11 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
         
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@@v5.2.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          projectBaseDir: ./proposed-solution/week08/api
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
           
       - name: Publish backend
         run: dotnet publish -c Release -o ./publish

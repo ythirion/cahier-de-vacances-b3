@@ -65,7 +65,8 @@ app.MapPost("/api/password-check",
         async (ICheckPasswordUseCase useCase, CheckPassword request, IPasswordCheckLogger logger) =>
         {
             var result = await useCase.HandleAsync(request.Password);
-            await logger.LogAsync(request.Password, result);
+            // ReSharper disable once NullableWarningSuppressionIsUsed : is checked through the use case 
+            await logger.LogAsync(request.Password!, result);
 
             return result.ToResponse();
         })

@@ -4,9 +4,9 @@ namespace FirewallCracker.Adapters;
 
 public class RuleEntity
 {
-    public int Id { get; set; }
-    public string Regex { get; set; }
-    public string Description { get; set; }
+    public int Id { get; init; }
+    public required string Regex { get; init; }
+    public required string Description { get; init; }
 }
 
 public static class RuleEntityExtensions
