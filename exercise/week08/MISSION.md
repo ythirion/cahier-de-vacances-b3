@@ -12,6 +12,8 @@ Your mission:
 - **Make it self-sustaining** — no more manual pushes
 - **Deploy the Grid** — and hold your ground with a single command
 
+![Week 8 - Final Upload](img/week08.webp)
+
 The future of Zion depends on your pipeline.
 
 ## 🧑‍💻 Your Mission
@@ -80,18 +82,12 @@ Now turn your GitHub Actions workflow into a **complete CI/CD pipeline**:
    * Trigger deployment with CLI (Fly.io, Railway, Render)
    * Or push to a branch watched by your platform
 
-3. 🛡️ **Secure the Signal**
-
-   * Use GitHub Secrets for all tokens and URLs
-   * Never expose access keys. **Smith is watching.**
-
 ## ✅ Final Submission Checklist
 
 * [ ] CI workflow runs: lint, test, build for both front and back
 * [ ] Manual deploy to one frontend and one backend provider
 * [ ] GitHub Actions deploys automatically
 * [ ] Frontend points to the live backend
-* [ ] README includes live links and setup instructions
 
 > *“You’ve been fighting Agent Smith with instinct. Now fight him with automation.”*
 > — Morpheus
@@ -110,11 +106,3 @@ Here are **4 reflect questions** for **Week 8 – *Final Upload*** to help stude
 
 4. **In a real-world system, how would you monitor and validate that your deployed environments remain stable and functional over time?**
    * Go beyond “it worked once” — what about tomorrow?
-
-
-TODO :
-- Create a file for explanations regarding Azure with screenshots
-- Badges -> Sonar, Codescene, Netlify, Azure
-- Steps to deploy
-   - api: https://matrix-api-hnbfbcaxhab2cugt.westeurope-01.azurewebsites.net/scalar/
-   - react: https://6848809c2845670b7fd9fb45--matrix-b3.netlify.app/
