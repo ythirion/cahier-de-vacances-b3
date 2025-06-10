@@ -1,4 +1,5 @@
 using FirewallCracker;
+using FirewallCracker.Adapters;
 using FirewallCracker.Core;
 using FirewallCracker.PasswordCheck;
 using Scalar.AspNetCore;
@@ -21,7 +22,13 @@ builder.Services
     })
     // Configure IOC
     .AddScoped<IPasswordChecker, PasswordChecker>()
-    .AddScoped<ICheckPasswordUseCase, CheckPasswordUseCase>();
+    .AddScoped<ICheckPasswordUseCase, CheckPasswordUseCase>()
+    .AddScoped<IPasswordRuleRepository, PasswordRuleRepository>()
+    .AddSingleton<Database>();
+
+builder.Services.Configure<DatabaseOptions>(
+    builder.Configuration.GetSection("ConnectionStrings")
+);
 
 var app = builder.Build();
 
@@ -40,6 +47,9 @@ app.MapPost("/api/password-check",
         (ICheckPasswordUseCase useCase, CheckPassword request) => useCase.Handle(request.Password).ToResponse())
     .WithDisplayName("Check Password");
 
+
+var db = app.Services.GetRequiredService<Database>();
+await db.InitializeAsync();
 await app.RunAsync();
 
 public partial class Program;

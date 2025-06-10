@@ -4,12 +4,7 @@ namespace FirewallCracker.Tests.Unit;
 
 public class PasswordCheckerShould
 {
-    private readonly PasswordChecker _checker;
-
-    public PasswordCheckerShould()
-    {
-        _checker = new PasswordChecker(new PasswordRuleRepositoryFake());
-    }
+    private readonly PasswordChecker _checker = new(new PasswordRuleRepositoryFake());
 
     [Theory]
     [InlineData("Valid123@")]
@@ -59,13 +54,14 @@ public class PasswordCheckerShould
 
 internal class PasswordRuleRepositoryFake : IPasswordRuleRepository
 {
-    public IEnumerable<Rule> GetRules() =>
-    [
-        new(".{8,}", "Password must be at least 8 characters long"),
-        new(".*[A-Z].*", "Password must contain at least one uppercase letter"),
-        new(".*[a-z].*", "Password must contain at least one lowercase letter"),
-        new(".*[0-9].*", "Password must contain at least one number"),
-        new(".*[.*#@$%&].*", "Password must contain at least one cyber-symbol (. * # @ $ % &)"),
-        new("^[a-zA-Z0-9.*#@$%&]+$", "Invalid characters detected!!!")
-    ];
+    public Task<IEnumerable<Rule>> GetRules() =>
+        Task.FromResult<IEnumerable<Rule>>(new List<Rule>
+        {
+            new(".{8,}", "Password must be at least 8 characters long"),
+            new(".*[A-Z].*", "Password must contain at least one uppercase letter"),
+            new(".*[a-z].*", "Password must contain at least one lowercase letter"),
+            new(".*[0-9].*", "Password must contain at least one number"),
+            new(".*[.*#@$%&].*", "Password must contain at least one cyber-symbol (. * # @ $ % &)"),
+            new("^[a-zA-Z0-9.*#@$%&]+$", "Invalid characters detected!!!")
+        });
 }

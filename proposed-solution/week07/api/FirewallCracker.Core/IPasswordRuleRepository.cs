@@ -2,5 +2,5 @@ namespace FirewallCracker.Core;
 
 public interface IPasswordRuleRepository
 {
-    IEnumerable<Rule> GetRules();
+    Task<IEnumerable<Rule>> GetRules();
 }
