@@ -4,7 +4,7 @@ using FirewallCracker.PasswordCheck;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
-//var allowedOrigins = builder.Configuration.GetSection("AllowedCorsOrigins").Get<string[]>();
+var allowedOrigins = builder.Configuration.GetSection("AllowedCorsOrigins").Get<string[]>();
 
 builder.Services
     .AddOpenApi()
@@ -13,8 +13,8 @@ builder.Services
         options.AddDefaultPolicy(policy =>
         {
             policy
-                //.WithOrigins(allowedOrigins ?? [])
-                .AllowAnyOrigin()
+                .WithOrigins(allowedOrigins ?? [])
+                //.AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
