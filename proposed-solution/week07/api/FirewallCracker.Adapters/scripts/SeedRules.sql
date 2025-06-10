@@ -1,4 +1,4 @@
-INSERT INTO Rules (Regex, Description, Active)
+INSERT INTO Rules (Regex, Description, IsActive)
 VALUES ('.{8,}', 'Password must be at least 8 characters long', 1),
        ('.*[A-Z].*', 'Password must include one uppercase letter', 1),
        ('.*[a-z].*', 'Password must include one lowercase letter', 1),
