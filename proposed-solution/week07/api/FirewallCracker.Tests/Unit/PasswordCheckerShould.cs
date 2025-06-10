@@ -10,8 +10,8 @@ public class PasswordCheckerShould
     [InlineData("Valid123@")]
     [InlineData("Valid123@#$")]
     [InlineData("ValidPassword123@")]
-    public void Validate_ValidPasswords(string password)
-        => Assert.True(_checker.Check(password).IsValid);
+    public async Task Validate_ValidPasswords(string password)
+        => Assert.True((await _checker.CheckAsync(password)).IsValid);
 
     public static IEnumerable<object[]> InvalidPasswords =>
         new List<object[]>
@@ -40,9 +40,9 @@ public class PasswordCheckerShould
 
     [Theory]
     [MemberData(nameof(InvalidPasswords))]
-    public void Reject_InvalidPasswords(string password, List<string> expectedMessages)
+    public async Task Reject_InvalidPasswords(string password, List<string> expectedMessages)
     {
-        var result = _checker.Check(password);
+        var result = await _checker.CheckAsync(password);
 
         Assert.False(result.IsValid);
         Assert.Equal(
@@ -54,7 +54,7 @@ public class PasswordCheckerShould
 
 internal class PasswordRuleRepositoryFake : IPasswordRuleRepository
 {
-    public Task<IEnumerable<Rule>> GetRules() =>
+    public Task<IEnumerable<Rule>> GetRulesAsync() =>
         Task.FromResult<IEnumerable<Rule>>(new List<Rule>
         {
             new(".{8,}", "Password must be at least 8 characters long"),

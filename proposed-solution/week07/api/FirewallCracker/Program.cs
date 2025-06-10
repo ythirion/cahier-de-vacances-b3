@@ -44,7 +44,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapPost("/api/password-check",
-        (ICheckPasswordUseCase useCase, CheckPassword request) => useCase.Handle(request.Password).ToResponse())
+        async (ICheckPasswordUseCase useCase, CheckPassword request) =>
+        {
+            var result = await useCase.HandleAsync(request.Password);
+            return result.ToResponse();
+        })
     .WithDisplayName("Check Password");
 
 

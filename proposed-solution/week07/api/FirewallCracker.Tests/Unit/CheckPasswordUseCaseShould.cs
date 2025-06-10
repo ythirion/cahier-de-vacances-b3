@@ -17,14 +17,16 @@ public class CheckPasswordUseCaseShould
     }
 
     [Fact]
-    public void Throw_Invalid_Argument_Exception_If_Password_Is_Null()
-        => Assert.Throws<ArgumentNullException>(() => _checkPasswordUseCase.Handle(null));
+    public async Task Throw_Invalid_Argument_Exception_If_Password_Is_Null()
+        => await Assert.ThrowsAsync<ArgumentNullException>(async ()
+            => await _checkPasswordUseCase.HandleAsync(null)
+        );
 
     [Fact]
-    public void Call_Password_Checker()
+    public async Task Call_Password_Checker()
     {
         var password = _faker.Internet.Password();
-        _checkPasswordUseCase.Handle(password);
+        await _checkPasswordUseCase.HandleAsync(password);
         _passwordCheckerFake.HaveBeenCalledWith(password);
     }
 }
@@ -33,10 +35,10 @@ internal class PasswordCheckerFake : IPasswordChecker
 {
     private string? _checkedPassword;
 
-    public CheckPasswordResult Check(string password)
+    public Task<CheckPasswordResult> CheckAsync(string password)
     {
         _checkedPassword = password;
-        return new CheckPasswordResult(true, []);
+        return Task.FromResult(new CheckPasswordResult(true, []));
     }
 
     public void HaveBeenCalledWith(string password) => Assert.Equal(_checkedPassword, password);

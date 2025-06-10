@@ -7,11 +7,10 @@ public record Rule(string Regex, string Description)
 
 public sealed class PasswordChecker(IPasswordRuleRepository passwordRuleRepository) : IPasswordChecker
 {
-    public CheckPasswordResult Check(string password)
+    public async Task<CheckPasswordResult> CheckAsync(string password)
     {
-        //TODO fix async part
-        var errors = passwordRuleRepository.GetRules()
-            .Result
+        var rules = await passwordRuleRepository.GetRulesAsync();
+        var errors = rules
             .Where(rule => !rule.Match(password))
             .Select(rule => rule.Description)
             .ToList();
@@ -22,5 +21,5 @@ public sealed class PasswordChecker(IPasswordRuleRepository passwordRuleReposito
 
 public interface IPasswordChecker
 {
-    public CheckPasswordResult Check(string password);
+    public Task<CheckPasswordResult> CheckAsync(string password);
 }

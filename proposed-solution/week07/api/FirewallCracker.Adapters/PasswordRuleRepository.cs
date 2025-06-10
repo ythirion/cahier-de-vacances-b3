@@ -11,7 +11,7 @@ public class PasswordRuleRepository(IOptions<DatabaseOptions> options) : IPasswo
 
     private SqliteConnection CreateConnection() => new(_connectionString);
 
-    public async Task<IEnumerable<Rule>> GetRules()
+    public async Task<IEnumerable<Rule>> GetRulesAsync()
     {
         const string sql = "SELECT * FROM Rules WHERE IsActive = 1";
 
