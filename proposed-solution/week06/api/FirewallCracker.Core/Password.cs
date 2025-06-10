@@ -1,11 +1,21 @@
 ﻿namespace FirewallCracker.Core;
 
-public static class PasswordChecker
+public interface IPasswordChecker
+{
+    public CheckPasswordResult Check(string password);
+}
+
+public sealed class PasswordChecker : IPasswordChecker
+{
+    public CheckPasswordResult Check(string password) => PasswordPolicy.Check(password);
+}
+
+public static class PasswordPolicy
 {
     private const int MinimumLength = 8;
     private static readonly List<char> SpecialCharacters = ['.', '*', '#', '@', '$', '%', '&'];
 
-    public static PasswordResult Check(string password)
+    public static CheckPasswordResult Check(string password)
     {
         var errors = new List<string>();
 
@@ -16,7 +26,7 @@ public static class PasswordChecker
         AtLeastOneCyberSymbol(password, errors);
         HasOnlyValidCharacters(password, errors);
 
-        return new PasswordResult(errors.Count == 0, errors.ToArray());
+        return new CheckPasswordResult(errors.Count == 0, errors.ToArray());
     }
 
     private static void GreaterThanMinimumLength(string password, List<string> errors)

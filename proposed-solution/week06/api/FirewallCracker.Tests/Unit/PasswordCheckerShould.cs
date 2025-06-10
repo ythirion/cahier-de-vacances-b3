@@ -9,7 +9,7 @@ public class PasswordCheckerShould
     [InlineData("Valid123@#$")]
     [InlineData("ValidPassword123@")]
     public void Validate_ValidPasswords(string password)
-        => Assert.True(PasswordChecker.Check(password).IsValid);
+        => Assert.True(PasswordPolicy.Check(password).IsValid);
 
     public static IEnumerable<object[]> InvalidPasswords =>
         new List<object[]>
@@ -40,7 +40,7 @@ public class PasswordCheckerShould
     [MemberData(nameof(InvalidPasswords))]
     public void Reject_InvalidPasswords(string password, List<string> expectedMessages)
     {
-        var result = PasswordChecker.Check(password);
+        var result = PasswordPolicy.Check(password);
 
         Assert.False(result.IsValid);
         Assert.Equal(

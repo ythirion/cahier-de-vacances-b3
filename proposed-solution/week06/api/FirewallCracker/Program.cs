@@ -1,5 +1,5 @@
-using FirewallCracker.Commands;
 using FirewallCracker.Core;
+using FirewallCracker.PasswordCheck;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +17,10 @@ builder.Services
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
-    });
+    })
+    // Configure IOC
+    .AddScoped<IPasswordChecker, PasswordChecker>()
+    .AddScoped<ICheckPasswordUseCase, CheckPasswordUseCase>();
 
 var app = builder.Build();
 app.UseCors();
@@ -29,8 +32,9 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference(opt => { opt.WithTitle("Matrix - Firewall Cracker"); });
 }
 
-app.MapPost("/api/password-check", (CheckPassword command) => PasswordChecker.Check(command.Password))
-    .WithDisplayName("Password check");
+app.MapPost("/api/password-check",
+        (ICheckPasswordUseCase useCase, CheckPassword request) => useCase.Handle(request.Password).ToResponse())
+    .WithDisplayName("Check Password");
 
 app.Run();
 

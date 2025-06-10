@@ -1,6 +1,5 @@
 ﻿using System.Net.Http.Json;
-using FirewallCracker.Commands;
-using FirewallCracker.Core;
+using FirewallCracker.PasswordCheck;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace FirewallCracker.Tests.Integration;
@@ -23,10 +22,10 @@ public class PasswordCheckerShould(WebApplicationFactory<Program> factory)
     {
         var response = await CheckPasswordFor(new CheckPassword("A1b#"));
         response.EnsureSuccessStatusCode();
-        var result = (await response.Content.ReadFromJsonAsync<PasswordResult>())!;
+        var result = (await response.Content.ReadFromJsonAsync<Response>())!;
 
         Assert.Equivalent(
-            new PasswordResult(
+            new Response(
                 IsValid: false,
                 Errors: ["Password must be at least 8 characters long"]
             ),
