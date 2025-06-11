@@ -150,10 +150,10 @@ Then outputs must match the original version byte-for-byte
 
 ## ☕ Reflect
 
-1. What did you change in the structure to make behavior extensible?
-2. How did you test for regressions in the existing code?
-3. Did refactoring help you think more clearly about the new feature?
-4. How would you add a new artefact like “Oracle Lens v1.0” next week?
+1. **Open-Closed Principle** *What did you change in the structure to make behavior extensible?*
+2. **Safety Net** *How did you test for regressions in the existing code?*
+3. **Refactoring** *Did refactoring help you think more clearly about the new feature?*
+4. **The future** *How would you add a new artefact like “Oracle Lens v1.0” next week?*
 
 > *"Code is control. But clean code is freedom."*
 > — Morpheus

@@ -68,7 +68,6 @@ Never store raw passwords. Even machines in `Zion` have standards.
 ## ☕ Reflect
 After rewriting the rule core, take a moment to consider:
 
-1. **What benefits does this dynamic rule system bring over hardcoded logic?**
-2. **How did moving logic to the database impact testability or flexibility?**
-3. **What challenges arise in keeping track of system behavior when rules are mutable?**
-4. **How would you scale this architecture if new rule types required more complex logic?**
+1. **Database storage** *What benefits does this dynamic rule system bring over hardcoded logic?*
+2. **Testability** *How did moving logic to the database impact testability or flexibility?*
+3. **The future** *How would you scale this architecture if new rule types required more complex logic?*
