@@ -63,7 +63,7 @@ Your job is to load the real instruction file (`submarine.txt`), parse its comma
 
 ### Disclaimer
 The puzzle used for this week is taken from [Advent Of Code 2021](https://adventofcode.com/2021) ([Day 2](https://adventofcode.com/2021/day/2)).
-> All credits goes to AOC's team for their incredible work.
+> All credits go to the AOC team for their incredible work.
 
 ## ☕ Reflect
 Take a moment to reflect on what you learned inside the Trench Protocol:
@@ -75,7 +75,7 @@ Take a moment to reflect on what you learned inside the Trench Protocol:
    *What part of the input processing was trickiest for you? Did your solution feel robust?*
 
 3. **Debugging and Confidence**
-   *What did you learn about your debugging process? What signs do you look for*
+   *What did you learn about your debugging process? What signs do you look for?*
 
 4. **Clarity vs. Cleverness** 
 	*How clearly did the code reflect the real-world behavior of the system (e.g., submarine movement)? What terms or structures could you improve to make the business intent of the logic more explicit?*

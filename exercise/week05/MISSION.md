@@ -135,7 +135,7 @@ After building your breach simulation, step back from the UI and ask yourself:
     *You implemented the validation rules in the frontend to simulate the Matrix breach... but what are the risks of relying only on client-side validation in a real-world system?*
 
 3. **Architecture**
-    *How would you adapt your architecture if this breach key were being submitted to a real secure endpoint?*
+    *How would you adapt your architecture if this breach key was being submitted to a real secure endpoint?*
 
 4. **Resistance for All**
     *How can you ensure your interface could be used by any rebel — regardless of ability or device?*
