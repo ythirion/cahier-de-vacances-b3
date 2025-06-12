@@ -1,4 +1,4 @@
-# Week 9 – *Final Upload: Neo Wins!*
+# Week 9 – *Neo Wins!*
 **The Matrix is finally free.**
 
 **Neo, you’ve done it!**
